@@ -2,9 +2,10 @@ const express = require("express");
 const app = express();
 // require path for public folder
 const path = require("path")
-
 // server port 
 const PORT = 3000;
+// import user-model
+const userModel = require("./models/user")
 
 
 // view engine with ejs
@@ -25,6 +26,19 @@ app.get("/", (req, res)=> {
 
 app.get("/read", (req, res)=> {
     res.render("read");
+});
+
+// post request for create user
+app.post("/create", async (req, res)=> {
+    let {name, email, image} = req.body;
+
+    let createdUser = await userModel.create({
+        name: name,
+        email: email,
+        image: image,
+    });
+
+    res.send(createdUser)
 });
 
 app.listen(PORT, ()=> {

@@ -6,8 +6,14 @@
 6. add tailwind css with cdn in every .ejs file
 
 
+
 <h4>Create public folder within "images", "js", "stylesheet"</h4>
 
 <h4>
     create a views folder within the index.ejs file. render it in request get in app.js
+</h4>
+
+
+<h4>
+    create a models folder within the user.js file for mongoose setup
 </h4>
