@@ -2,3 +2,4 @@
 2. Install express (npm i express)
 3. Install mongoose (npm i mongoose)
 4. Install nodemon for running server (npm i nodemon -D)
+5. Install EJS for form handling (npm i ejs)

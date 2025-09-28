@@ -1,8 +1,23 @@
 const express = require("express");
 const app = express();
+// require path for public folder
+const path = require("path")
 
 // server port 
 const PORT = 3000;
+
+
+// view engine with ejs
+app.set("view engine", "ejs") 
+// requested middleware
+app.use(express.json());
+// from data handling middleware 
+app.use(express.urlencoded({ extended:true }));
+// for public folder path 
+app.use(express.static(path.join(__dirname, "public")));
+
+
+
 
 app.get("/", (req, res)=> {
     res.send("Hello");
