@@ -6,3 +6,7 @@
 
 
 <h4>Create public folder within "images", "js", "stylesheet"</h4>
+
+<h4>
+    create a views folder within the index.ejs file. render it in request get in app.js
+</h4>
