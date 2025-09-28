@@ -3,6 +3,7 @@
 3. Install mongoose (npm i mongoose)
 4. Install nodemon for running server (npm i nodemon -D)
 5. Install EJS for form handling (npm i ejs)
+6. add tailwind css with cdn in every .ejs file
 
 
 <h4>Create public folder within "images", "js", "stylesheet"</h4>
