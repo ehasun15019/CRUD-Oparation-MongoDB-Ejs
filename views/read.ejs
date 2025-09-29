@@ -20,17 +20,17 @@
             <% } else { %>
             <% user.map(function(everyUser) { %>
                 <div class="user w-72 p-4 bg-zinc-800 rounded-lg">
-                <div class="w-full h-52 rounded-lg overflow-hidden">
-                    <img src="<%= everyUser.image %>" alt="" class="object-cover h-full w-full">
-                </div>
+                    <div class="w-full h-52 rounded-lg overflow-hidden">
+                        <img src="<%= everyUser.image %>" alt="" class="object-cover h-full w-full">
+                    </div>
 
-                <h3 class="text-xl tracking-tighter mt-3"><%= everyUser.name %></h3>
-                <h5 class="text-zinc-500"><%= everyUser.email %></h5>
+                    <h3 class="text-xl tracking-tighter mt-3"><%= everyUser.name %></h3>
+                    <h5 class="text-zinc-500"><%= everyUser.email %></h5>
 
-                <div class="flex gap-3 mt-6 justify-between">
-                    <a href="" class="text-green-600 rounded-lg">Edit User</a>
-                    <a href="/delete/<%= everyUser._id %>" class="text-red-600 rounded-lg">Delete User</a>
-                </div>
+                    <div class="flex gap-3 mt-6 justify-between">
+                        <a href="/edit/<%= everyUser._id %>" class="text-green-600 rounded-lg">Edit User</a>
+                        <a href="/delete/<%= everyUser._id %>" class="text-red-600 rounded-lg">Delete User</a>
+                    </div>
                 </div>
             <% }) %>
           <% } %>

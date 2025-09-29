@@ -49,6 +49,20 @@ app.get("/delete/:id", async (req, res) => {
     res.redirect("/read")
 })
 
+// Edit any user
+app.get("/edit/:id", async (req, res) => {
+    let user = await userModel.findOne({_id: req.params.id});
+    res.render("edit", {user})
+})
+
+// updated user 
+app.post("/update/:id", async (req, res) => {
+    let {name, email, image} = req.body;
+
+    let user = await userModel.findOneAndUpdate({_id: req.params.id}, {name, email, image}, {new: true});
+    res.redirect("/read")
+})
+
 app.listen(PORT, ()=> {
     console.log(`Server is running on http://localhost:${PORT}`);  
 })
