@@ -24,12 +24,13 @@ app.get("/", (req, res)=> {
     res.render("index");
 });
 
-app.get("/read", (req, res)=> {
-    res.render("read");
+app.get("/read", async (req, res)=> {
+    let user = await userModel.find();
+    res.render("read", {user});
 });
 
 // post request for create user
-app.post("/create", async (req, res)=> {
+app.post("/create", async (req, res)=> {    
     let {name, email, image} = req.body;
 
     let createdUser = await userModel.create({
@@ -38,8 +39,15 @@ app.post("/create", async (req, res)=> {
         image: image,
     });
 
-    res.send(createdUser)
+    res.redirect("/read");
 });
+
+
+// Delete any user 
+app.get("/delete/:id", async (req, res) => {
+    let user = await userModel.findOneAndDelete({_id: req.params.id});
+    res.redirect("/read")
+})
 
 app.listen(PORT, ()=> {
     console.log(`Server is running on http://localhost:${PORT}`);  
